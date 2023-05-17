@@ -1,86 +1,60 @@
-﻿/// Przygotuj program, który policzy ile jakich cyfr
-/// występuje w podanej liczbie:
-/// 
-/// Przykład: Wynik dla liczby: 4566
-/// 0 => 0
-/// 1 => 0
-/// 2 => 0
-/// 3 => 0
-/// 4 => 0
-/// 5 => 0
-/// 6 => 0
-/// 7 => 0
-/// 8 => 0
-/// 9 => 0
+﻿/// 1.Stwórz klasę Employee, w której przechowasz imię, nazwisko, wiek
+/// oraz punkty pracownika w postaci liczb całkowitych.
+/// 2. Stwórz 3 pracowników i każdemu przydziel po 5 ocen
+/// z zakresu 1-10.
+/// 3. NApisz program, który wyszuka pracownika z największą
+/// liczbą ocen i wyświetli jego dane oraz wynik.
 
-Console.Write("Podaj numer do analizy: ");
+using ChallengeApp;
 
-string number = Console.ReadLine();
-string numberAsString = number.ToString();
-char[] letters = numberAsString.ToCharArray();
+Employee user1 = new Employee("Wladek", "Jarząbek", "25");
+Employee user2 = new Employee("Maniek", "Bąbel", "34");
+Employee user3 = new Employee("Zenek", "Haubica", "43");
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
+user1.AddScore(5);
+user1.AddScore(9);
+user1.AddScore(9);
+user1.AddScore(10);
+user1.AddScore(7);
 
-foreach (char letter in letters)
+user2.AddScore(8);
+user2.AddScore(9);
+user2.AddScore(2);
+user2.AddScore(1);
+user2.AddScore(6);
+
+user3.AddScore(7);
+user3.AddScore(4);
+user3.AddScore(3);
+user3.AddScore(10);
+user3.AddScore(9);
+
+List<Employee> users = new List<Employee>()
 {
-    if (letter == '0')
+    user1, user2, user3
+};
+
+int maxResult = -1;
+Employee userMaxValue = null;
+
+foreach(var user in users)
+{
+    if(user1.Result > maxResult)
     {
-        counter0++;
+        userMaxValue = user1;
+        maxResult = user1.Result;
     }
-    else if (letter == '1')
+    else if(user2.Result > maxResult)
     {
-        counter1++;
+        userMaxValue = user2;
+        maxResult = user2.Result;   
     }
-    else if (letter == '2')
+    else if(user3.Result > maxResult)
     {
-        counter2++;
-    }
-    else if (letter == '3')
-    {
-        counter3++;
-    }
-    else if (letter == '4')
-    {
-        counter4++;
-    }
-    else if (letter == '5')
-    {
-        counter5++;
-    }
-    else if (letter == '6')
-    {
-        counter6++;
-    }
-    else if (letter == '7')
-    {
-        counter7++;
-    }
-    else if (letter == '8')
-    {
-        counter8++;
-    }
-    else if (letter == '9')
-    {
-        counter9++;
+        userMaxValue = user3;
+        maxResult = user3.Result;
     }
 }
-Console.WriteLine("0 => " + counter0);
-Console.WriteLine("1 => " + counter1);
-Console.WriteLine("2 => " + counter2);
-Console.WriteLine("3 => " + counter3);
-Console.WriteLine("4 => " + counter4);
-Console.WriteLine("6 => " + counter5);
-Console.WriteLine("7 => " + counter6);
-Console.WriteLine("8 => " + counter7);
-Console.WriteLine("9 => " + counter8);
 
-Console.ReadLine();
+Console.WriteLine("Najwyższa ocena to: " + maxResult + " punktów"); 
+Console.WriteLine("Zdobył ją: " + userMaxValue.Name + " " + userMaxValue.Surname + " " + userMaxValue.Age + " lat");
