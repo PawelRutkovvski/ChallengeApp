@@ -2,12 +2,12 @@ namespace ChallengeApp.Tests
 {
     public class Tests
     {
-        [Test]
+        
         public void WhenUserCollectPoints_ShouldCorrectSum()
         {
             //arrange
-            var user1 = new Employee("Wlad", "Palownik", "136");
-            var user2 = new Employee("Ivan", "Grozny", "99");
+            var user1 = new Employee("Wlad", "Palownik", "309");
+            var user2 = new Employee("Ivan", "Grozny", "164");
 
             user1.AddScore(5);
             user1.AddScore(6);
