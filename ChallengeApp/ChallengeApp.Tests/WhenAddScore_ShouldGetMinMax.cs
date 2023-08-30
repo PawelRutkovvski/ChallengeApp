@@ -1,4 +1,4 @@
-﻿namespace ChallengeApp.Tests
+﻿ namespace ChallengeApp.Tests
 {
     public class WhenAddScore_ShouldGetMinMax
     {

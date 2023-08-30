@@ -396,3 +396,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/ChallengeApp/ChallengeApp.Tests/TypeTests.cs
+/ChallengeApp/ChallengeApp.Tests/WhenUserCollectPoints_ShouldCorrectSum.cs
