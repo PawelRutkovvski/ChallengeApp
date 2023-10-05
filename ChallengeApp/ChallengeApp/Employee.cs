@@ -82,7 +82,7 @@ public class Employee
         {
             statistics.Max = Math.Max(statistics.Max, grade);
             statistics.Min = Math.Min(statistics.Min, grade);
-            statistics.Average += grades.Count;
+            statistics.Average += grade;
         }
         statistics.Average /= this.grades.Count;
         return statistics;
