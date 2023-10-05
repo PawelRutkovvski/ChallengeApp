@@ -7,3 +7,4 @@
         public float Average { get; set; } 
     }
 }
+//do testów Gita i GitHUB'a

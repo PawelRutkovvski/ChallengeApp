@@ -1,5 +1,5 @@
 ﻿namespace ChallengeApp;
-
+//do testów Gita i GitHUB'a
 public class Employee
 {
     private List<float> grades = new List<float>();

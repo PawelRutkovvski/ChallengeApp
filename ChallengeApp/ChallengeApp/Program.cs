@@ -2,10 +2,10 @@
 using System;
 
 var employee = new Employee("Pawel", "CoMaWszystko");
+employee.AddScore(9);
+employee.AddScore(6);
 employee.AddScore(5);
-employee.AddScore(8);
-employee.AddScore(5);
-employee.AddScore(8);
+employee.AddScore(7);
 
 var statistics1 = employee.GetStatisticsWithFor();
 var statistics2 = employee.GetStatisticsWithForEach();
