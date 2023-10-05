@@ -112,7 +112,7 @@ public class Employee
         statistics.Max = float.MinValue;
         statistics.Min = float.MaxValue;
         var index = 0;
-
+//Komentarz testowy, czy tutorial będzie ok.
         do {
             statistics.Max = Math.Max(statistics.Max, grades[index]);
             statistics.Min = Math.Min(statistics.Min, grades[index]);
