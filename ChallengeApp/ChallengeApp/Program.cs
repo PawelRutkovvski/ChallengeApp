@@ -1,29 +1,28 @@
 ﻿using ChallengeApp;
-using System;
 
-var employee = new Employee("Pawel", "CoMaWszystko");
-employee.AddScore(9);
-employee.AddScore(6);
-employee.AddScore(5);
-employee.AddScore(7);
+Console.WriteLine("Welcome To Employee Evaluation Program");
+Console.WriteLine("======================================");
+Console.WriteLine();
 
-var statistics1 = employee.GetStatisticsWithFor();
-var statistics2 = employee.GetStatisticsWithForEach();
-var statistics3 = employee.GetStatisticsWithWhile();
-var statistics4 = employee.GetStatisticsWithDoWhile();
+var employee = new Employee("Jeremi", "Wiśniowiecki");
 
-Console.WriteLine($"Max: {statistics1.Max}");
-Console.WriteLine($"Min: {statistics1.Min}");
-Console.WriteLine($"Average: {statistics1.Average}");
-Console.WriteLine(" ");
-Console.WriteLine($"Max: {statistics2.Max}");
-Console.WriteLine($"Min: {statistics2.Min}");
-Console.WriteLine($"Average: {statistics2.Average}");
-Console.WriteLine(" ");
-Console.WriteLine($"Max: {statistics3.Max}");
-Console.WriteLine($"Min: {statistics3.Min}");
-Console.WriteLine($"Average: {statistics3.Average}");
-Console.WriteLine(" ");
-Console.WriteLine($"Max: {statistics4.Max}");
-Console.WriteLine($"Min: {statistics4.Min}");
-Console.WriteLine($"Average: {statistics4.Average}");
+while (true)
+{
+    Console.WriteLine("Enter next grade of Your Employee: ");
+    Console.WriteLine("... or q to see statistics");
+    
+    var input = Console.ReadLine();
+    if (input == "q") 
+    {
+        break;
+    }
+    employee.AddGrade(input);
+
+}
+
+var statistics = employee.GetStatistics();
+Console.WriteLine();
+Console.WriteLine($"Average: {statistics.Average}");
+Console.WriteLine($"Max: {statistics.Max}");
+Console.WriteLine($"Min: {statistics.Min}");
+Console.WriteLine($"AvgLetter: {statistics.AverageLetter}");
