@@ -4,7 +4,7 @@ Console.WriteLine("Welcome To Employee Evaluation Program");
 Console.WriteLine("======================================");
 Console.WriteLine();
 
-var employee = new Employee("Jeremi", "Wiśniowiecki");
+var employee = new Employee("Paweł", "Rutkowski");
 
 while (true)
 {
@@ -16,8 +16,15 @@ while (true)
     {
         break;
     }
-    employee.AddGrade(input);
 
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch(Exception e)
+    {
+        Console.WriteLine($"Exception catched: {e.Message}");
+    }
 }
 
 var statistics = employee.GetStatistics();

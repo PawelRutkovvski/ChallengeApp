@@ -1,6 +1,6 @@
 ﻿namespace ChallengeApp;
 public class Employee
-{
+{ 
     private List<float> grades = new List<float>();
     public Employee(string name, string surname)
     {
@@ -16,7 +16,7 @@ public class Employee
         {
             this.grades.Add(grade);
         }
-        else Console.WriteLine("invalid grade value");
+        else throw new Exception("Invalid grade value.");
     }
     public void AddGrade(string grade)
     {
@@ -24,7 +24,7 @@ public class Employee
         {
             this.AddGrade(result);
         }
-        else Console.WriteLine("String is not float.");
+        else throw new Exception("String is not float.");
     }
     public void AddGrade(double grade)
     {
@@ -59,28 +59,26 @@ public class Employee
         switch(grade)
         {
         case 'A':
-                this.grades.Add(100);
+                AddGrade(100);
                 break;
         case 'B':
-                this.grades.Add(80);
+                AddGrade(80);
                 break;
         case 'C':
-               this.grades.Add(60);
+                AddGrade(60);
                 break;
         case 'D':
-                this.grades.Add(40);
+                AddGrade(40);
                 break;
         case 'E':
-                this.grades.Add(20);
+                AddGrade(20);
                 break;
         default:
-                Console.WriteLine("Wrong Letter");
-                break;
+                throw new Exception("Wrong Letter. Enter correct one.");
         }
     }
     public Statistics GetStatistics()
     {
-
         var statistics = new Statistics();
 
         statistics.Average = 0;
@@ -111,8 +109,7 @@ public class Employee
                 break;
             default:
                 statistics.AverageLetter = 'E';
-                Console.WriteLine("Wrong Letter");
-                break;
+                throw new Exception("Wrong Letter.");
         }
         return statistics;
     }
