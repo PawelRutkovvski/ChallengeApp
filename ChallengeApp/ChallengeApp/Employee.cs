@@ -1,15 +1,11 @@
 ﻿namespace ChallengeApp;
-public class Employee
+public class Employee : Person
 { 
     private List<float> grades = new List<float>();
-    public Employee(string name, string surname)
+    public Employee(string name, string surname, char gender)
+        : base(name, surname, gender)
     {
-        this.Name = name;
-        this.Surname = surname;
     }
-    public string Name { get; set; }
-    public string Surname { get; set; }
-
     public void AddGrade(float grade)
     {
         if (grade >= 0 && grade <= 100)
@@ -56,24 +52,24 @@ public class Employee
     }
     public void AddGrade(char grade)
     {
-        switch(grade)
+        switch (grade)
         {
-        case 'A':
+            case 'A':
                 AddGrade(100);
                 break;
-        case 'B':
+            case 'B':
                 AddGrade(80);
                 break;
-        case 'C':
+            case 'C':
                 AddGrade(60);
                 break;
-        case 'D':
+            case 'D':
                 AddGrade(40);
                 break;
-        case 'E':
+            case 'E':
                 AddGrade(20);
                 break;
-        default:
+            default:
                 throw new Exception("Wrong Letter. Enter correct one.");
         }
     }
@@ -92,7 +88,6 @@ public class Employee
             statistics.Average += grade;
         }
         statistics.Average /= this.grades.Count;
-
         switch (statistics.Average)
         {
             case var average when average >= 80:

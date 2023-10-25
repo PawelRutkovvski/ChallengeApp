@@ -4,7 +4,7 @@ Console.WriteLine("Welcome To Employee Evaluation Program");
 Console.WriteLine("======================================");
 Console.WriteLine();
 
-var employee = new Employee("Paweł", "Rutkowski");
+var employee = new Employee("Paweł", "Rutkowski", 'M');
 
 while (true)
 {
