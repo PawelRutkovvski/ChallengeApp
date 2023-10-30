@@ -1,5 +1,5 @@
 ﻿namespace ChallengeApp;
-public class Employee : Person
+public class Employee : Person, IEmployee
 { 
     private List<float> grades = new List<float>();
     public Employee(string name, string surname, char gender)
@@ -9,7 +9,7 @@ public class Employee : Person
     public void AddGrade(float grade)
     {
         if (grade >= 0 && grade <= 100)
-        {
+        { 
             this.grades.Add(grade);
         }
         else throw new Exception("Invalid grade value.");

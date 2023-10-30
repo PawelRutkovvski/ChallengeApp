@@ -5,7 +5,7 @@
         [Test]
         public void ReturnExactLetterC_AfterInsertGrades()
         {
-            var employee = new Employee("Paweł", "Rutkowski");
+            var employee = new Employee("Paweł", "Rutkowski", 'M');
             employee.AddGrade(24);
             employee.AddGrade(64);
             employee.AddGrade(82);
@@ -17,7 +17,7 @@
         [Test]
         public void ReturnExactLetterA_AfterInsertGrades()
         {
-            var employee = new Employee("Paweł", "Rutkowski");
+            var employee = new Employee("Paweł", "Rutkowski", 'M');
             employee.AddGrade(81);
             employee.AddGrade(77);
             employee.AddGrade(98);
