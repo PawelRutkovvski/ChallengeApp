@@ -8,15 +8,15 @@
             //arrange
             var employee = new Employee("Pawel", "Rutkowski", 'M');
 
-            employee.AddGrade(5);
-            employee.AddGrade(2);
-            employee.AddGrade(8);
+            employee.AddGrade(10);
+            employee.AddGrade(98);
+            employee.AddGrade(15);
 
             //act
             var statistics = employee.GetStatistics();
 
             //Assert
-            Assert.AreEqual(2, statistics.Min);
+            Assert.AreEqual(10, statistics.Min);
                       
         }
 
@@ -26,15 +26,15 @@
             //arrange
             var employee = new Employee("Pawel", "Rutkowski", 'M');
 
-            employee.AddGrade(5);
-            employee.AddGrade(2);
-            employee.AddGrade(8);
+            employee.AddGrade(16);
+            employee.AddGrade(26);
+            employee.AddGrade(86);
 
             //act
             var statistics = employee.GetStatistics();
 
             //Assert
-            Assert.AreEqual(8, statistics.Max);
+            Assert.AreEqual(86, statistics.Max);
 
         }
     }

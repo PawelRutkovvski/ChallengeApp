@@ -10,6 +10,7 @@
             Surname = surname;
             Gender = gender;
         }
+
         public string Name { get; private set; }
 
         public string Surname { get; private set; }
@@ -24,6 +25,7 @@
             }
             else throw new Exception("Invalid Grade Value");
         }
+
         public void AddGrade(int grade)
         {
             if (float.TryParse(grade.ToString(), out float result))
@@ -31,6 +33,7 @@
                 this.AddGrade(result);
             }
         }
+
         public void AddGrade(double grade)
         {
             if (float.TryParse(grade.ToString(), out float result))
@@ -38,6 +41,7 @@
                 this.AddGrade(result);
             }
         }
+
         public void AddGrade(string grade)
         {
             switch (grade)
