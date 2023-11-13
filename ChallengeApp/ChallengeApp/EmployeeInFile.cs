@@ -5,8 +5,9 @@ namespace ChallengeApp
     public class EmployeeInFile : EmployeeBase
     {
 
-        private List<float> grades = new List<float>();
+        public override event GradeAddedDelegate GradeAdded;
 
+        private List<float> grades = new();
 
         private const string fileName = "grades.txt";
 
@@ -19,9 +20,14 @@ namespace ChallengeApp
         {
             if (grade >= 0 && grade <= 100)
             {
-                using (var writer = File.AppendText(fileName)) //stumień działa tylko w nawiasach poniżej.
+                using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
+                }
+
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
                 }
             }
             else throw new Exception("Invalid grade value.");
@@ -118,7 +124,7 @@ namespace ChallengeApp
                 statistics.Average += grade;
             }
 
-            statistics.Average /= this.grades.Count;
+            statistics.Average /= grades.Count;
 
             switch (statistics.Average)
             {
