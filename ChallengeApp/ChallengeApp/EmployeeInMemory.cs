@@ -17,12 +17,15 @@
             {
                 this.grades.Add(grade);
 
-                if(GradeAdded != null)
+                if (GradeAdded != null)
                 {
                     GradeAdded(this, new EventArgs());
                 }
             }
-            else throw new Exception("Invalid grade value.");
+            else
+            {
+                throw new Exception("Invalid grade value.");
+            }
         }
 
         public override void AddGrade(double grade)
@@ -45,19 +48,19 @@
         {
             switch (grade)
             {
-            case 'A':
+            case 'A' or 'a':
                     AddGrade(100);
                     break;
-            case 'B':
+            case 'B' or 'b':
                     AddGrade(80);
                     break;
-            case 'C':
+            case 'C' or 'c':
                     AddGrade(60);
                     break;
-            case 'D':
+            case 'D' or 'd':
                     AddGrade(40);
                     break;
-            case 'E':
+            case 'E' or 'e':
                     AddGrade(20);
                     break;
             default:
@@ -71,43 +74,22 @@
             {
                 this.AddGrade(result);
             }
-            else throw new Exception("String is not float.");
+            else
+            {
+                throw new Exception("String is not float.");
+            }
         }
 
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
 
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-
             foreach (var grade in this.grades)
             {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
+                statistics.AddGrade(grade);
             }
-            statistics.Average /= this.grades.Count;
-            switch (statistics.Average)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    throw new Exception("Wrong Letter.");
-            }
-            return statistics;
+
+         return statistics;
         }
     }
 }
